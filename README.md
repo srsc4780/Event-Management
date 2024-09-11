@@ -5,7 +5,7 @@ This project consists of two main parts:
 1. **Backend**: Node.js API running on Firebase Cloud Functions.
 2. **Frontend**: Flutter application consuming the API.
 
-Follow the steps below to run both the Node.js API and Flutter application quickly.
+This guide will help you quickly set up and run both the **Node.js API** and **Flutter** application.
 
 ---
 
@@ -16,7 +16,8 @@ Follow the steps below to run both the Node.js API and Flutter application quick
 2. [Flutter App Setup](#flutter-app-setup)
    - [Configure API URL](#configure-api-url)
    - [Run Flutter App](#run-flutter-app)
-3. [Conclusion](#conclusion)
+3. [Requirements](#requirements)
+4. [Conclusion](#conclusion)
 
 ---
 
@@ -43,17 +44,20 @@ npm install
    npm run dev
    ```
 
-   This will start your API on `http://localhost:5000`. Make sure to configure your firewall or network settings if running on a specific IP address.
+   This will start your API on `http://localhost:5000`. Ensure that your firewall or network settings allow access on this port if using a specific IP address.
 
-2. The API will be available at: <your ip4 adress>:5000
-   - to know your ip4 address on windows
-   ```bash
-   ipconfig
-   ```
-   - or mac/linux
-   ```bash
-    ifconfig
-   ```
+2. Retrieve your machine's local IPv4 address for network access:
+
+   - For **Windows**:
+     ```bash
+     ipconfig
+     ```
+   - For **macOS/Linux**:
+     ```bash
+     ifconfig
+     ```
+
+3. Use the IP address to access the API from your Flutter app or another device on the network, e.g., `http://192.168.0.155:5000/api`.
 
 ---
 
@@ -61,15 +65,15 @@ npm install
 
 ### 1. Configure API URL
 
-1. Open the Flutter project directory:
+1. Navigate to the Flutter project directory:
 
    ```bash
-   cd event-management-app
+   cd ../event-management-app
    ```
 
-2. In your Flutter project, navigate to `lib/data/network/api/api_provider.dart`.
+2. Open the file `lib/data/network/api/api_provider.dart`.
 
-3. Set the `baseUrl` variable to the URL of your API (make sure to match the IP address of your Node.js server):
+3. Update the `baseUrl` variable to match the IP address of your Node.js server (from step 2 in Node.js API Setup):
 
    ```dart
    class ApiProvider {
@@ -78,11 +82,11 @@ npm install
    }
    ```
 
-4. Ensure the IP address in the `baseUrl` matches the one you used to run the Node.js API.
+4. Make sure the IP address is consistent with your Node.js API's network configuration.
 
 ### 2. Install Flutter Dependencies
 
-Before running the Flutter app, make sure to install all the necessary dependencies:
+Run the following command to install all necessary Flutter packages:
 
 ```bash
 flutter pub get
@@ -90,9 +94,38 @@ flutter pub get
 
 ### 3. Run Flutter App
 
-1. Make sure your device is connected or the emulator is running.
-2. Run the following command to start the app:
+1. Ensure that your device (physical or emulator) is connected and ready.
+2. Run the app with the following command:
 
    ```bash
    flutter run
    ```
+
+---
+
+## Requirements
+
+Make sure you are using the correct versions of **Node.js** and **Flutter** to avoid compatibility issues:
+
+- **Node.js version**: Up to `18.x`
+- **Flutter version**: `3.24.1`
+
+Check your Node.js version with:
+
+```bash
+node -v
+```
+
+Check your Flutter version with:
+
+```bash
+flutter --version
+```
+
+If you need to install or update Flutter, you can follow the [official installation guide](https://flutter.dev/docs/get-started/install).
+
+---
+
+## Conclusion
+
+After following this guide, you should be able to run both the **Node.js API** and **Flutter app** in a seamless environment. Make sure both the Node.js API and Flutter app are on the same network to avoid connection issues.
