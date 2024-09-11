@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Applications/XAMPP/xamppfiles/htdocs/flutter-app/sales_tracker",
+      "program": "/Applications/XAMPP/xamppfiles/htdocs/flutter-app/sales_tracker/build/Debug/outDebug"
+    }
+  ]
+}
